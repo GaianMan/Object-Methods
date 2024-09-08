@@ -92,24 +92,5 @@ function isMore(arr){
 }
 console.log("Students that evaluated more than 60: " ,isMore(evaluations));
 
-//Return an array of students for whom the average evaluation is less than 40
-function averageEvaluation(arr){
-    let averageArr= arr.reduce((av,score)=>score.score)
-}
 
 
-const studentScores = {};
-
-evaluations.forEach(item => {
-    if (!studentScores[item.studentId]) {
-        studentScores[item.studentId] = { totalScore: 0, count: 0, studentName: item.studentName };
-    }
-    studentScores[item.studentId].totalScore += item.score;
-    studentScores[item.studentId].count += 1;
-});
-
-const studentsWithLowAverage = Object.values(studentScores)
-    .filter(item => (item.totalScore / item.count) < 40)
-    .map(item => item.studentName);
-
-console.log(studentsWithLowAverage);
